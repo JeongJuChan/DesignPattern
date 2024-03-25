@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace DesignPatterns
 {
-    [Serializable]
     public class World
     {
         private Terrain[,] _tiles;

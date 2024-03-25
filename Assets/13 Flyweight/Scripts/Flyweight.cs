@@ -8,7 +8,7 @@ namespace DesignPatterns
     {
         [SerializeField] private int width = 10;
         [SerializeField] private int height = 10;
-        [SerializeField] private int trialCount = 100;
+        [SerializeField] private int trialCount = 1000000;
 
         [SerializeField] private Texture grassTexutre;
         [SerializeField] private Texture hillTexutre;
@@ -16,16 +16,23 @@ namespace DesignPatterns
 
         void Start()
         {
-            System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
-
             World world = new World(width, height, grassTexutre, hillTexutre, riverTexutre);
-            
+
+            int cost = world.GetTile(2, 3).GetMovementCost();
+
+            TestPerformance(world);
+        }
+
+        private void TestPerformance(World world)
+        {
+            EnumWorld enumWorld = new EnumWorld(width, height);
+
+            System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
             stopwatch.Start();
             GetMovementCosts(world);
             stopwatch.Stop();
             float elapsedWorldTime = stopwatch.ElapsedMilliseconds;
-            
-            EnumWorld enumWorld = new EnumWorld(width, height);
+
             stopwatch.Start();
             GetEnumMovementCosts(enumWorld);
             stopwatch.Stop();

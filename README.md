@@ -23,3 +23,10 @@ Or download the full e-book [here](https://resources.unity.com/games/level-up-yo
 Both internal and external Unity development experts contributed to the new e-book, especially Wilmer Lin at [Unity Game Academy](https://github.com/UnityGameAcademy), who made significant contributions, both to the guide and the demo project.
 
 Please keep in mind that the guide and these examples are based on subjective opinion; they are not recommendations that promise a particular outcome, but are examples only. A good code architectural solution is one that fits your needs and covers the majority of the day-to-day use cases in your game development. Our intention is for you to use the guide and examples as a starting point for creating your own guidelines. 
+
+# 추가한 내용
+* [Game Programming Patterns](https://gameprogrammingpatterns.com/)
+
+## Flyweight
+1. 유니티에서 Flyweight 적용
+2. Flyweight와 Enum비교와의 간단한 성능 테스트
