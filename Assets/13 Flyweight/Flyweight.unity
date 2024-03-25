@@ -341,9 +341,10 @@ MonoBehaviour:
   width: 10
   height: 10
   trialCount: 1000000
-  grassTexutre: {fileID: 8400000, guid: 1f54d1b54254ccf4d9545012c05660f4, type: 2}
-  hillTexutre: {fileID: 8400000, guid: 3effe193c2501fb4cbfc314756ddb25f, type: 2}
-  riverTexutre: {fileID: 8400000, guid: b352344dae95e684594cb8b6d72f125a, type: 2}
+  terrain:
+  - {fileID: 11400000, guid: 7921c4aa283cda8418a19e1f2a61b558, type: 2}
+  - {fileID: 11400000, guid: 5b59aaf5fb00e884eadb2f58bb86c1f8, type: 2}
+  - {fileID: 11400000, guid: 28b8eae6647e52c489417ff4fe2aba3f, type: 2}
 --- !u!4 &2033832689
 Transform:
   m_ObjectHideFlags: 0

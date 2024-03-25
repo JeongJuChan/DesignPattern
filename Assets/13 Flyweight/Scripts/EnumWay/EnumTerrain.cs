@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace DesignPatterns
 {
-    enum EnumTerrain 
+    public enum EnumTerrain 
     {
         TERRAIN_GRASS,
         TERRAIN_HILL,

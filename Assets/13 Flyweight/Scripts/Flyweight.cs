@@ -10,15 +10,14 @@ namespace DesignPatterns
         [SerializeField] private int height = 10;
         [SerializeField] private int trialCount = 1000000;
 
-        [SerializeField] private Texture grassTexutre;
-        [SerializeField] private Texture hillTexutre;
-        [SerializeField] private Texture riverTexutre;
+        [SerializeField] private World world;
 
         void Start()
         {
-            World world = new World(width, height, grassTexutre, hillTexutre, riverTexutre);
+            world.Init(width, height);
 
             int cost = world.GetTile(2, 3).GetMovementCost();
+            Debug.Log(cost);
 
             TestPerformance(world);
         }

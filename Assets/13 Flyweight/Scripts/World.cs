@@ -5,22 +5,29 @@ using UnityEngine;
 
 namespace DesignPatterns
 {
+    [Serializable]
     public class World
     {
         private Terrain[,] _tiles;
 
-        private Terrain _grassTerrain;
-        private Terrain _hillTerrain;
-        private Terrain _riverTerrain;
+        [SerializeField] private Terrain[] terrainTemplate;
 
-        public World(int width, int height, Texture grassTexture, Texture hillTexture, Texture riverTexture)
+        private Dictionary<EnumTerrain, Terrain> _terrainDict = new Dictionary<EnumTerrain, Terrain>();
+
+        public void Init(int width, int height)
         {
+            InitTerrainDict();
             _tiles = new Terrain[height, width];
-            _grassTerrain = new Terrain(1, false, grassTexture);
-            _hillTerrain = new Terrain(3, false, hillTexture);
-            _riverTerrain = new Terrain(2, true, riverTexture);
-            
             GenerateTerrain(width, height);
+        }
+
+        private void InitTerrainDict()
+        {
+            foreach (var terrain in terrainTemplate)
+            {
+                if (!_terrainDict.ContainsKey(terrain.TerrainType))
+                    _terrainDict.Add(terrain.TerrainType, terrain);
+            }
         }
 
         private void GenerateTerrain(int width, int height)
@@ -34,11 +41,11 @@ namespace DesignPatterns
                 {
                     if (UnityEngine.Random.Range(0, 11) == 0)
                     {
-                        _tiles[y, x] = _hillTerrain;
+                        _tiles[y, x] = _terrainDict[EnumTerrain.TERRAIN_GRASS];
                     }
                     else
                     {
-                        _tiles[y, x] = _grassTerrain;
+                        _tiles[y, x] = _terrainDict[EnumTerrain.TERRAIN_HILL];
                     }
                 }
             }
@@ -46,7 +53,7 @@ namespace DesignPatterns
             x = UnityEngine.Random.Range(0, width);
             for (y = 0; y < height; y++)
             {
-                _tiles[y, x] = _riverTerrain;
+                _tiles[y, x] = _terrainDict[EnumTerrain.TERRAIN_RIVER];
             }
         }
 

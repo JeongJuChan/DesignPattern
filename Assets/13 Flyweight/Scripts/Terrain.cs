@@ -4,32 +4,27 @@ using UnityEngine;
 
 namespace DesignPatterns
 {
-    public class Terrain
+    [CreateAssetMenu(menuName = "SO/Terrain", fileName = "Terrain")]
+    public class Terrain : ScriptableObject
     {
-        private int _movementCost;
-        private bool _isWater;
-        private Texture _texture;
-
-        public Terrain(int movementCost, bool isWater, Texture texture)
-        {
-            _movementCost = movementCost;
-            _isWater = isWater;
-            _texture = texture;
-        }
+        [field: SerializeField] public EnumTerrain TerrainType { get; private set; }
+        [field: SerializeField] public int MovementCost { get; private set; }
+        [field: SerializeField] public bool IsWater { get; private set; }
+        [field: SerializeField] public Texture Texture { get; private set; }
 
         public int GetMovementCost()
         {
-            return _movementCost;
+            return MovementCost;
         }
 
-        public bool IsWater()
+        public bool GetIsWater()
         {
-            return _isWater;
+            return IsWater;
         }
 
         public Texture GetTexture()
         {
-            return _texture;
+            return Texture;
         }
     }
 }
