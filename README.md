@@ -25,7 +25,7 @@ Both internal and external Unity development experts contributed to the new e-bo
 Please keep in mind that the guide and these examples are based on subjective opinion; they are not recommendations that promise a particular outcome, but are examples only. A good code architectural solution is one that fits your needs and covers the majority of the day-to-day use cases in your game development. Our intention is for you to use the guide and examples as a starting point for creating your own guidelines. 
 
 # 추가한 내용
-* [Game Programming Patterns](https://gameprogrammingpatterns.com/)
+* 참고 : [Game Programming Patterns](https://gameprogrammingpatterns.com/)
 
 ## Flyweight
 1. 유니티에서 Flyweight 적용
